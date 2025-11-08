@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.81a2a8b9.css",
-    "main.js": "/static/js/main.7fc0c7e1.js",
+    "main.js": "/static/js/main.9205e8ef.js",
     "static/media/barahsing_1.png": "/static/media/barahsing_1.1300a1b70926630a2f54.png",
     "static/media/Leo_fire_participation.png": "/static/media/Leo_fire_participation.eedf8c460460da384f42.png",
     "static/media/Hackfest2022_Sumesh Shrestha.jpg": "/static/media/Hackfest2022_Sumesh Shrestha.d1e38cc340c84d815444.jpg",
@@ -12,10 +12,10 @@
     "static/media/SOS_Certificate.jpg": "/static/media/SOS_Certificate.700d5731df676c35c2c6.jpg",
     "index.html": "/index.html",
     "main.81a2a8b9.css.map": "/static/css/main.81a2a8b9.css.map",
-    "main.7fc0c7e1.js.map": "/static/js/main.7fc0c7e1.js.map"
+    "main.9205e8ef.js.map": "/static/js/main.9205e8ef.js.map"
   },
   "entrypoints": [
     "static/css/main.81a2a8b9.css",
-    "static/js/main.7fc0c7e1.js"
+    "static/js/main.9205e8ef.js"
   ]
 }
