@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e0e18c31.css",
+    "main.js": "/static/js/main.50b4e4d8.js",
+    "static/media/barahsing_1.png": "/static/media/barahsing_1.1300a1b70926630a2f54.png",
+    "static/media/Leo_fire_participation.png": "/static/media/Leo_fire_participation.eedf8c460460da384f42.png",
+    "static/media/Hackfest2022_Sumesh Shrestha.jpg": "/static/media/Hackfest2022_Sumesh Shrestha.d1e38cc340c84d815444.jpg",
+    "static/media/pdf.worker.min.mjs": "/static/media/pdf.worker.min.6ce9167d72e6417213e9.mjs",
+    "static/media/SLC.jpg": "/static/media/SLC.063a48110ec5f5c2c71d.jpg",
+    "static/media/khwopa.jpg": "/static/media/khwopa.f30d9635df67803288ee.jpg",
+    "static/media/Grade_11_marksheet.jpg": "/static/media/Grade_11_marksheet.909c37c9a23927e9e51f.jpg",
+    "static/media/profile-pic 2.png": "/static/media/profile-pic 2.5ba5c901b899569041e6.png",
+    "static/media/SOS_Certificate.jpg": "/static/media/SOS_Certificate.700d5731df676c35c2c6.jpg",
+    "index.html": "/index.html",
+    "main.e0e18c31.css.map": "/static/css/main.e0e18c31.css.map",
+    "main.50b4e4d8.js.map": "/static/js/main.50b4e4d8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e0e18c31.css",
+    "static/js/main.50b4e4d8.js"
+  ]
+}
