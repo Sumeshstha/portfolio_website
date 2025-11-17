@@ -19,9 +19,9 @@ const Footer = () => {
   ];
 
   const connectLinks = [
-    { icon: FaGithub, href: 'https://github.com/sumeshshrestha', label: 'GitHub' },
-    { icon: FaLinkedin, href: 'https://linkedin.com/in/sumeshshrestha', label: 'LinkedIn' },
-    { icon: FaEnvelope, href: 'mailto:sumeshshrestha@example.com', label: 'Email' },
+    { icon: FaGithub, href: 'https://github.com/Sumeshstha', label: 'GitHub' },
+    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/sumesh-shrestha-838822273/', label: 'LinkedIn' },
+    { icon: FaEnvelope, href: 'mailto:sumeshstha94@gmail.com', label: 'Email' },
   ];
 
   const skillLinks = [
@@ -31,10 +31,10 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-light-footer dark:bg-dark-footer text-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-light-footer dark:bg-dark-footer text-white py-12 sm:py-16">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-10 sm:mb-12">
           {/* Navigation Column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -71,8 +71,7 @@ const Footer = () => {
                 <li key={link.label}>
                   <motion.a
                     href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    {...(link.href.startsWith('mailto:') ? {} : { target: "_blank", rel: "noopener noreferrer" })}
                     whileHover={{ x: 5 }}
                     className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-2"
                   >
@@ -120,8 +119,7 @@ const Footer = () => {
                 <motion.a
                   key={link.label}
                   href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...(link.href.startsWith('mailto:') ? {} : { target: "_blank", rel: "noopener noreferrer" })}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.9 }}
                   className="w-10 h-10 bg-gray-700 hover:bg-light-primary dark:hover:bg-dark-primary rounded-full flex items-center justify-center transition-colors duration-300"
@@ -145,14 +143,7 @@ const Footer = () => {
               className="text-gray-300 mb-4 md:mb-0"
             >
               <p className="flex items-center gap-2">
-                © 2024 Sumesh Shrestha. Made with{' '}
-                <motion.span
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 1, repeat: Infinity }}
-                >
-                  <FaHeart className="w-4 h-4 text-red-500" />
-                </motion.span>
-                {' '}and modern tech.
+                © 2024 Sumesh Shrestha.
               </p>
             </motion.div>
 
@@ -164,12 +155,12 @@ const Footer = () => {
               viewport={{ once: true }}
               className="flex gap-6 text-sm"
             >
-              <button className="text-gray-300 hover:text-white transition-colors duration-300">
+              {/* <button className="text-gray-300 hover:text-white transition-colors duration-300">
                 Privacy Policy
               </button>
               <button className="text-gray-300 hover:text-white transition-colors duration-300">
                 Terms of Service
-              </button>
+              </button> */}
             </motion.div>
           </div>
         </div>

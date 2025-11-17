@@ -14,9 +14,9 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
 
   const socialLinks = [
-    { icon: FaGithub, href: 'https://github.com/sumeshshrestha', label: 'GitHub' },
-    { icon: FaLinkedin, href: 'https://linkedin.com/in/sumeshshrestha', label: 'LinkedIn' },
-    { icon: FaEnvelope, href: 'mailto:sumeshshrestha@example.com', label: 'Email' },
+    { icon: FaGithub, href: 'https://github.com/Sumeshstha', label: 'GitHub' },
+    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/sumesh-shrestha-838822273/', label: 'LinkedIn' },
+    { icon: FaEnvelope, href: 'mailto:sumeshstha94@gmail.com', label: 'Email' },
   ];
 
   const handleChange = (e) => {
@@ -48,8 +48,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-light-bg dark:bg-dark-bg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-16 sm:py-20 bg-light-bg dark:bg-dark-bg">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,15 +58,15 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-light-text dark:text-dark-text mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-light-text dark:text-dark-text mb-4">
             Let's Work Together
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4 sm:px-0">
             I'm open to freelance, full-time roles, and collaborations. Tell me about your idea.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Side - Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -74,15 +74,15 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+              <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <label htmlFor="name" className="block text-sm font-medium text-light-text dark:text-dark-text mb-2">
+                  <label htmlFor="name" className="block text-sm font-semibold text-light-text dark:text-dark-text mb-3 px-1">
                     Full Name
                   </label>
                   <input
@@ -92,7 +92,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl text-light-text dark:text-dark-text placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl text-light-text dark:text-dark-text placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary focus:border-transparent transition-all duration-300"
                     placeholder="Your full name"
                   />
                 </motion.div>
@@ -103,7 +103,7 @@ const Contact = () => {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <label htmlFor="email" className="block text-sm font-medium text-light-text dark:text-dark-text mb-2">
+                  <label htmlFor="email" className="block text-sm font-semibold text-light-text dark:text-dark-text mb-3 px-1">
                     Email
                   </label>
                   <input
@@ -113,7 +113,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl text-light-text dark:text-dark-text placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl text-light-text dark:text-dark-text placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary focus:border-transparent transition-all duration-300"
                     placeholder="your.email@example.com"
                   />
                 </motion.div>
@@ -125,7 +125,7 @@ const Contact = () => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <label htmlFor="subject" className="block text-sm font-medium text-light-text dark:text-dark-text mb-2">
+                <label htmlFor="subject" className="block text-sm font-semibold text-light-text dark:text-dark-text mb-3 px-1">
                   Subject
                 </label>
                 <input
@@ -135,7 +135,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl text-light-text dark:text-dark-text placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl text-light-text dark:text-dark-text placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary focus:border-transparent transition-all duration-300"
                   placeholder="What's this about?"
                 />
               </motion.div>
@@ -146,7 +146,7 @@ const Contact = () => {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                <label htmlFor="message" className="block text-sm font-medium text-light-text dark:text-dark-text mb-2">
+                <label htmlFor="message" className="block text-sm font-semibold text-light-text dark:text-dark-text mb-3 px-1">
                   Message
                 </label>
                 <textarea
@@ -156,7 +156,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl text-light-text dark:text-dark-text placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary focus:border-transparent transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl text-light-text dark:text-dark-text placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary focus:border-transparent transition-all duration-300 resize-none"
                   placeholder="Tell me about your project or idea..."
                 />
               </motion.div>
@@ -172,7 +172,7 @@ const Contact = () => {
                   whileTap={{ scale: 0.98 }}
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-light-primary dark:bg-dark-primary text-white rounded-xl font-semibold text-lg hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full flex items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-light-primary dark:bg-dark-primary text-white rounded-xl font-semibold text-base sm:text-lg hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed mt-2"
                 >
                   {isSubmitting ? (
                     <>
@@ -207,9 +207,7 @@ const Contact = () => {
                   </motion.p>
                 )}
 
-                <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-4">
-                  Form submission handled server side.
-                </p>
+               
               </motion.div>
             </form>
           </motion.div>
@@ -236,8 +234,7 @@ const Contact = () => {
                   <motion.a
                     key={social.label}
                     href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    {...(social.href.startsWith('mailto:') ? {} : { target: "_blank", rel: "noopener noreferrer" })}
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
