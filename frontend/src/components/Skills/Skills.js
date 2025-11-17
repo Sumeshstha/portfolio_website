@@ -71,8 +71,8 @@ const Skills = () => {
   const selectedSkill = skillCategories.find(skill => skill.id === selectedCategory);
 
   return (
-    <section id="skills" className="py-20 bg-light-bg dark:bg-dark-bg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-16 sm:py-20 bg-light-bg dark:bg-dark-bg">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -81,12 +81,12 @@ const Skills = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-light-text dark:text-dark-text mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-light-text dark:text-dark-text mb-4">
             Technical Skills
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
           {/* Left Side - Skill Categories */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
