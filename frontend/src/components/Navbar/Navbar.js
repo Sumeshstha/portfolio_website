@@ -70,7 +70,7 @@ const Navbar = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/">
@@ -119,12 +119,12 @@ const Navbar = () => {
           </div>
 
           {/* Theme Toggle & Mobile Menu Button */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-light-text dark:text-dark-text hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+              className="p-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-light-text dark:text-dark-text hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
             >
               {isDark ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
             </motion.button>
@@ -133,7 +133,7 @@ const Navbar = () => {
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-light-text dark:text-dark-text hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+              className="md:hidden p-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-light-text dark:text-dark-text hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300 z-50"
             >
               {isMobileMenuOpen ? <FaTimes className="w-5 h-5" /> : <FaBars className="w-5 h-5" />}
             </motion.button>
@@ -148,9 +148,9 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-dark-bg border-t border-gray-200 dark:border-gray-700"
+            className="md:hidden bg-white dark:bg-dark-bg border-t border-gray-200 dark:border-gray-700 shadow-lg"
           >
-            <div className="px-4 py-4 space-y-2">
+            <div className="px-5 py-5 space-y-2.5">
               {navItems.map((item) => (
                 <motion.div key={item.id}>
                   {item.id === 'home' ? (
