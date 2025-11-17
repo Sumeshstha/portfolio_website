@@ -1,55 +1,58 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaEye } from 'react-icons/fa';
+import FriendlyChat from "../../assets/friendlychat.png";
+import kalimati from "../../assets/kalimati.png";
 
 const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'Portfolio Website',
-      description: 'A modern portfolio with theme toggle and smooth sections.',
-      techStack: ['Next.js', 'Tailwind', 'Vercel'],
+      title: 'Friendly Chat',
+      description: 'A real-time chat application with user authentication and theme toggle functionality.',
+      techStack: ['Flutter', 'Firebase'],
       status: 'Live',
       statusColor: 'bg-green-500',
-      buttonText: 'View Source',
-      buttonIcon: FaGithub,
-      buttonAction: 'https://github.com/sumeshshrestha/portfolio',
-      image: '/project-portfolio.jpg'
+      buttonText: 'View Live',
+      buttonIcon: FaEye,
+      buttonAction: 'https://friendlychat-a8bbc.web.app/',
+      image: FriendlyChat 
+
     },
     {
       id: 2,
-      title: 'AI-Powered Café Assistant',
-      description: 'Conversational ordering and recommendations for cafés.',
-      techStack: ['OpenAI', 'Next.js', 'RAG'],
-      status: 'In Progress',
-      statusColor: 'bg-yellow-500',
-      buttonText: 'Follow Updates',
+      title: 'Pneumonia Detection System',
+      description: 'An AI-powered system for detecting pneumonia from chest X-rays using deep learning.',
+      techStack: ['Python', 'TensorFlow', 'OpenCV'],
+      status: 'Completed',
+      statusColor: 'bg-green-500',
+      buttonText: 'View Project',
       buttonIcon: FaEye,
-      buttonAction: '#',
-      image: '/project-cafe.jpg'
+      buttonAction: 'https://github.com/sumeshshrestha/pneumonia-detection',
+      image: '/project-quiz.jpg'  // Placeholder image - would ideally show medical AI visualization
     },
     {
       id: 3,
-      title: 'Fast-F1 Data App',
-      description: 'Visualize lap deltas and strategy with live telemetry.',
-      techStack: ['Python', 'FastAPI', 'Charting'],
-      status: 'Planned MVP',
-      statusColor: 'bg-blue-500',
-      buttonText: 'View Concept',
+      title: 'Kalimati Market Monitor',
+      description: 'A data visualization platform for monitoring vegetable and fruit prices at Kalimati market in Nepal.',
+      techStack: ['Python', 'Streamlit', 'Pandas', 'Plotly'],
+      status: 'Live',
+      statusColor: 'bg-green-500',
+      buttonText: 'View Live',
       buttonIcon: FaEye,
-      buttonAction: '#',
-      image: '/project-f1.jpg'
+      buttonAction: 'https://kalimatitarkari.streamlit.app/',
+      image: kalimati
     },
     {
       id: 4,
-      title: 'GK Quiz App',
-      description: 'Daily quizzes with streaks and leaderboards.',
-      techStack: ['React', 'Node', 'Postgres'],
-      status: 'Coming Soon',
-      statusColor: 'bg-purple-500',
+      title: 'Recipe Website',
+      description: 'A responsive recipe sharing platform with search and filtering capabilities.',
+      techStack: ['React', 'Node.js', 'Express', 'MongoDB'],
+      status: 'In Development',
+      statusColor: 'bg-yellow-500',
       buttonText: 'View Progress',
       buttonIcon: FaEye,
-      buttonAction: '#',
+      buttonAction: 'https://github.com/sumeshshrestha/recipe-website',
       image: '/project-quiz.jpg'
     }
   ];
@@ -64,8 +67,8 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-light-bg dark:bg-dark-bg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-16 sm:py-20 bg-light-bg dark:bg-dark-bg">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -74,13 +77,13 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-light-text dark:text-dark-text mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-light-text dark:text-dark-text mb-4">
             Projects
           </h2>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -93,15 +96,16 @@ const Projects = () => {
             >
               <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
                 {/* Project Image */}
-                <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 relative overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mx-auto mb-2 flex items-center justify-center">
-                        <span className="text-2xl font-bold text-white">{project.id}</span>
-                      </div>
-                      <p className="text-sm text-gray-600 dark:text-gray-300">Project Preview</p>
-                    </div>
-                  </div>
+                <div className="h-48 relative overflow-hidden rounded-t-2xl">
+                  {project.image && project.image !== "#" && (
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${
+                        project.id === 1 ? 'object-contain bg-transparent' : 'object-cover'
+                      }`}
+                    />
+                  )}
                   
                   {/* Status Badge */}
                   <div className="absolute top-4 right-4">
@@ -163,7 +167,7 @@ const Projects = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => window.open('https://github.com/sumeshshrestha', '_blank')}
+            onClick={() => window.open('https://github.com/Sumeshstha', '_blank')}
             className="px-8 py-4 border-2 border-light-primary dark:border-dark-primary text-light-primary dark:text-dark-primary rounded-2xl font-semibold text-lg hover:bg-light-primary dark:hover:bg-dark-primary hover:text-white transition-all duration-300 flex items-center gap-2 mx-auto"
           >
             <FaGithub className="w-5 h-5" />
