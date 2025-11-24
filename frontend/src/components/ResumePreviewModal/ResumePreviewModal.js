@@ -15,7 +15,7 @@ const ResumePreviewModal = ({ isOpen, onClose }) => {
   const [pageNumber] = useState(1);
   const [scale, setScale] = useState(1.0);
   const [viewport, setViewport] = useState({ width: 0, height: 0, type: 'desktop' });
-  const resumeFile = `${process.env.PUBLIC_URL}/resume.pdf`;
+  const resumeFile = `/resume.pdf`;
 
   // Responsive viewport detection
   useEffect(() => {
