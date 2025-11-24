@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 import './ResumePreviewModal.css';
 import { FaPlus, FaMinus, FaDownload } from 'react-icons/fa';
 
-// Configure PDF.js worker
+// Configure PDF.js worker (react-pdf v10) - use non-mjs worker for CRA
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  'pdfjs-dist/build/pdf.worker.min.mjs',
+  'pdfjs-dist/build/pdf.worker.min.js',
   import.meta.url,
 ).toString();
 
@@ -15,6 +15,7 @@ const ResumePreviewModal = ({ isOpen, onClose }) => {
   const [pageNumber] = useState(1);
   const [scale, setScale] = useState(1.0);
   const [viewport, setViewport] = useState({ width: 0, height: 0, type: 'desktop' });
+  const resumeFile = `${process.env.PUBLIC_URL}/resume.pdf`;
 
   // Responsive viewport detection
   useEffect(() => {
@@ -78,6 +79,14 @@ const ResumePreviewModal = ({ isOpen, onClose }) => {
     console.error('Error loading PDF:', error);
   };
 
+  // Safe scale change helper
+  const changeScale = useCallback((delta) => {
+    setScale((prev) => {
+      const next = Math.min(2.0, Math.max(0.5, parseFloat((prev + delta).toFixed(2))));
+      return next;
+    });
+  }, []);
+
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = '/resume.pdf';
@@ -96,11 +105,11 @@ const ResumePreviewModal = ({ isOpen, onClose }) => {
           <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-wrap transition-all duration-300">
             {/* Zoom Controls */}
             <div className="flex items-center gap-1 sm:gap-2 transition-all duration-300">
-              <button onClick={() => setScale(scale - 0.1)} disabled={scale <= 0.5} className="p-1.5 sm:p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 transition-all duration-200 transform hover:scale-105 active:scale-95">
+              <button onClick={() => changeScale(-0.1)} disabled={scale <= 0.5} className="p-1.5 sm:p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 transition-all duration-200 transform hover:scale-105 active:scale-95">
                 <FaMinus className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
               <span className="text-xs sm:text-sm font-semibold w-8 sm:w-12 text-center transition-all duration-300">{Math.round(scale * 100)}%</span>
-              <button onClick={() => setScale(scale + 0.1)} disabled={scale >= 2.0} className="p-1.5 sm:p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 transition-all duration-200 transform hover:scale-105 active:scale-95">
+              <button onClick={() => changeScale(0.1)} disabled={scale >= 2.0} className="p-1.5 sm:p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 transition-all duration-200 transform hover:scale-105 active:scale-95">
                 <FaPlus className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
             </div>
@@ -121,7 +130,7 @@ const ResumePreviewModal = ({ isOpen, onClose }) => {
         <div className="flex-grow overflow-auto p-2 sm:p-3 md:p-4 lg:p-6 transition-all duration-300 ease-in-out">
           <div className="pdf-viewer-container w-full h-full min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] transition-all duration-300 ease-in-out">
             <Document
-              file="/resume.pdf"
+              file={resumeFile}
               onLoadSuccess={onDocumentLoadSuccess}
               onLoadError={onDocumentLoadError}
               loading={
@@ -139,7 +148,7 @@ const ResumePreviewModal = ({ isOpen, onClose }) => {
                       <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                     </svg>
                     <p className="text-sm sm:text-base font-semibold">Failed to load PDF</p>
-                    <p className="text-xs sm:text-sm text-gray-500 mt-2">Please check the console for details</p>
+                    <p className="text-xs sm:text-sm text-gray-500 mt-2">Ensure `resume.pdf` exists in `public/` and is a valid PDF.</p>
                   </div>
                 </div>
               }
