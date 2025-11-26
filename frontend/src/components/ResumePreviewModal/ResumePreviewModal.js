@@ -6,7 +6,7 @@ import './ResumePreviewModal.css';
 import { FaPlus, FaMinus, FaDownload } from 'react-icons/fa';
 
 // Configure PDF.js worker (react-pdf v10) - use non-mjs worker for CRA
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 const ResumePreviewModal = ({ isOpen, onClose }) => {
   const [pageNumber] = useState(1);
