@@ -6,16 +6,14 @@ import './ResumePreviewModal.css';
 import { FaPlus, FaMinus, FaDownload } from 'react-icons/fa';
 
 // Configure PDF.js worker (react-pdf v10) - use non-mjs worker for CRA
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  'pdfjs-dist/build/pdf.worker.min.js',
-  import.meta.url,
-).toString();
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 const ResumePreviewModal = ({ isOpen, onClose }) => {
   const [pageNumber] = useState(1);
   const [scale, setScale] = useState(1.0);
   const [viewport, setViewport] = useState({ width: 0, height: 0, type: 'desktop' });
   const resumeFile = `${process.env.PUBLIC_URL}/resume.pdf`;
+  console.log('Resume file path:', resumeFile);
 
   // Responsive viewport detection
   useEffect(() => {
@@ -23,7 +21,7 @@ const ResumePreviewModal = ({ isOpen, onClose }) => {
       const width = window.innerWidth;
       const height = window.innerHeight;
       let type = 'desktop';
-      
+
       if (width < 640) {
         type = 'mobile';
       } else if (width < 1024) {
@@ -33,9 +31,9 @@ const ResumePreviewModal = ({ isOpen, onClose }) => {
       } else {
         type = 'large';
       }
-      
+
       setViewport({ width, height, type });
-      
+
       // Auto-adjust scale based on viewport
       if (type === 'mobile' && scale > 1.2) {
         setScale(0.8);
@@ -113,9 +111,9 @@ const ResumePreviewModal = ({ isOpen, onClose }) => {
                 <FaPlus className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
             </div>
-            
-            
-            
+
+
+
             {/* Download Button */}
             <button onClick={handleDownload} className="flex items-center gap-1 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-light-primary dark:bg-dark-primary text-white rounded-lg font-semibold hover:opacity-90 transition-all duration-200 transform hover:scale-105 active:scale-95">
               <FaDownload className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -154,9 +152,9 @@ const ResumePreviewModal = ({ isOpen, onClose }) => {
               }
               className="pdf-document transition-all duration-300"
             >
-              <Page 
-                pageNumber={pageNumber} 
-                scale={scale} 
+              <Page
+                pageNumber={pageNumber}
+                scale={scale}
                 className="pdf-page transition-all duration-300 shadow-lg"
                 renderTextLayer={false}
                 renderAnnotationLayer={false}
