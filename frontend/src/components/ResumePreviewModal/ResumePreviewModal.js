@@ -6,13 +6,18 @@ import './ResumePreviewModal.css';
 import { FaPlus, FaMinus, FaDownload } from 'react-icons/fa';
 
 // Configure PDF.js worker (react-pdf v10) - use non-mjs worker for CRA
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+if (typeof window !== 'undefined') {
+  pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+}
 
 const ResumePreviewModal = ({ isOpen, onClose }) => {
   const [pageNumber] = useState(1);
   const [scale, setScale] = useState(1.0);
   const [viewport, setViewport] = useState({ width: 0, height: 0, type: 'desktop' });
-  const resumeFile = `${process.env.PUBLIC_URL}/resume.pdf`;
+  // Handle both development and production paths
+  const resumeFile = process.env.PUBLIC_URL 
+    ? `${process.env.PUBLIC_URL}/resume.pdf` 
+    : '/resume.pdf';
   console.log('Resume file path:', resumeFile);
 
   // Responsive viewport detection
@@ -65,10 +70,6 @@ const ResumePreviewModal = ({ isOpen, onClose }) => {
     };
   }, [onClose]);
 
-  if (!isOpen) {
-    return null;
-  }
-
   const onDocumentLoadSuccess = ({ numPages }) => {
     console.log(`PDF loaded with ${numPages} pages`);
   };
@@ -84,6 +85,10 @@ const ResumePreviewModal = ({ isOpen, onClose }) => {
       return next;
     });
   }, []);
+
+  if (!isOpen) {
+    return null;
+  }
 
   const handleDownload = () => {
     const link = document.createElement('a');
