@@ -4,9 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { FaGraduationCap, FaTrophy, FaMedal, FaCertificate, FaChevronLeft, FaChevronRight, FaArrowLeft } from 'react-icons/fa';
 
 // Import certificate images
-import grade11Marksheet from '../assets/Grade_11_marksheet.jpg';
+
 import khwopaImage from '../assets/khwopa.jpg';
-import slcImage from '../assets/SLC.jpg';
 import sosCertificate from '../assets/SOS_Certificate.jpg';
 import leoParticipation from '../assets/Leo_fire_participation.png';
 import hackfestCertificate from '../assets/Hackfest2022_Sumesh Shrestha.jpg';
@@ -39,7 +38,7 @@ const Certificates = () => {
           year: '2019',
           description: 'School Leaving Certificate with distinction',
           certificates: [
-            { id: 1, title: 'SLC Certificate', image: slcImage, description: 'School Leaving Certificate with distinction' },
+            
             { id: 2, title: 'SOS Certificate', image: sosCertificate, description: 'SOS Hermann Gmeiner School Certificate' }
           ]
         },
@@ -49,7 +48,7 @@ const Certificates = () => {
           year: '2021',
           description: 'Higher Secondary Education in Science',
           certificates: [
-            { id: 3, title: 'Grade 11 Marksheet', image: grade11Marksheet, description: 'Grade 11 Academic Marksheet' },
+  
             { id: 4, title: 'Khwopa Certificate', image: khwopaImage, description: 'Khwopa Secondary School Certificate' }
           ]
         }
