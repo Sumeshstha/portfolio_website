@@ -47,8 +47,15 @@ const Navbar = () => {
   }, [location.pathname, navItems]);
 
   const scrollToSection = (sectionId) => {
+    const basePath = process.env.PUBLIC_URL || '';
+
     if (sectionId === 'home') {
-      window.location.href = '/';
+      window.location.href = `${basePath}/`;
+      return;
+    }
+
+    if (location.pathname !== '/') {
+      window.location.href = `${basePath}/#${sectionId}`;
       return;
     }
     
