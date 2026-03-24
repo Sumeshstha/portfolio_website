@@ -2,7 +2,7 @@
   "name": "sumesh-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sumeshstha.github.io/portfolio_website",
+  "homepage": "https://sumeshshrestha.com.np",
   "dependencies": {
     "axios": "^1.11.0",
     "framer-motion": "^11.11.17",

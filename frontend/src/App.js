@@ -6,10 +6,31 @@ import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
 import Certificates from './pages/Certificates';
 
+const getRouterBasename = () => {
+  const publicUrl = process.env.PUBLIC_URL || '';
+
+  if (!publicUrl) {
+    return '';
+  }
+
+  if (publicUrl.startsWith('http')) {
+    try {
+      const { pathname } = new URL(publicUrl);
+      return pathname === '/' ? '' : pathname.replace(/\/$/, '');
+    } catch {
+      return '';
+    }
+  }
+
+  return publicUrl.replace(/\/$/, '');
+};
+
+const routerBasename = getRouterBasename();
+
 function App() {
   return (
     <ThemeProvider>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router basename={routerBasename}>
         <div className="min-h-screen bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text transition-colors duration-300 overflow-x-hidden w-full max-w-full">
           <Navbar />
           <main>
