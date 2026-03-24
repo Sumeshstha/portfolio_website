@@ -1,18 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import profileImage from '../../assets/profile-pic 2.png';
-import ResumePreviewModal from '../ResumePreviewModal/ResumePreviewModal';
 
 const Hero = () => {
-  const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false);
-
-  const openPreviewModal = () => {
-    setIsPreviewModalOpen(true);
-  };
-
-  const closePreviewModal = () => {
-    setIsPreviewModalOpen(false);
+  const openResume = () => {
+    const resumeUrl = `${process.env.PUBLIC_URL}/resume.pdf`;
+    window.open(resumeUrl, '_blank', 'noopener,noreferrer');
   };
 
   const scrollToSection = (sectionId) => {
@@ -106,7 +100,7 @@ const Hero = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={openPreviewModal} // Open the preview modal
+                  onClick={openResume}
                   className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent border-2 border-light-primary dark:border-dark-primary text-light-primary dark:text-dark-primary rounded-2xl font-semibold text-base md:text-lg hover:bg-light-primary hover:text-white dark:hover:bg-dark-primary dark:hover:text-white transition-all duration-300"
                 >
                   Download CV
@@ -209,10 +203,6 @@ const Hero = () => {
         </div>
       </section>
 
-      <ResumePreviewModal 
-        isOpen={isPreviewModalOpen} 
-        onClose={closePreviewModal} 
-      />
     </>
   );
 };
