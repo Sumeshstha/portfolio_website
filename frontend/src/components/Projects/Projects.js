@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaEye } from 'react-icons/fa';
 import FriendlyChat from "../../assets/friendlychat.png";
 import kalimati from "../../assets/kalimati.png";
+import comingSoonDesign from "../../assets/coming-soon-design.jpg";
 
 const Projects = () => {
   const projects = [
@@ -24,12 +25,12 @@ const Projects = () => {
       title: 'Pneumonia Detection System',
       description: 'An AI-powered system for detecting pneumonia from chest X-rays using deep learning.',
       techStack: ['Python', 'TensorFlow', 'OpenCV'],
-      status: 'Completed',
-      statusColor: 'bg-green-500',
+      status: 'In Development',
+      statusColor: 'bg-yellow-500',
       buttonText: 'View Project',
       buttonIcon: FaEye,
       buttonAction: 'https://github.com/sumeshshrestha/pneumonia-detection',
-      image: '/project-quiz.jpg'  // Placeholder image - would ideally show medical AI visualization
+      image: comingSoonDesign
     },
     {
       id: 3,
@@ -53,7 +54,7 @@ const Projects = () => {
       buttonText: 'View Progress',
       buttonIcon: FaEye,
       buttonAction: 'https://github.com/sumeshshrestha/recipe-website',
-      image: '/project-quiz.jpg'
+      image: comingSoonDesign
     }
   ];
 

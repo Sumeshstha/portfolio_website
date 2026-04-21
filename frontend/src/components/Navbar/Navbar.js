@@ -16,7 +16,9 @@ const Navbar = () => {
     { id: 'about', label: 'About', path: '/#about' },
     { id: 'skills', label: 'Skills', path: '/#skills' },
     { id: 'projects', label: 'Projects', path: '/#projects' },
-    { id: 'contact', label: 'Contact', path: '/#contact' },
+    // TEMP UNDER-CONSTRUCTION (Apr 2026)
+    // To undo: change path back to '/#contact' to restore in-page contact navigation.
+    { id: 'contact', label: 'Contact', path: '/contact' },
   ], []);
 
   useEffect(() => {
@@ -37,9 +39,14 @@ const Navbar = () => {
       }
     };
 
+    // TEMP UNDER-CONSTRUCTION (Apr 2026)
+    // Contact now has a dedicated '/contact' route that shows the placeholder page.
+    // To undo: remove '/contact' branch and keep only home scroll-spy behavior.
     // Set active section based on current route
     if (location.pathname === '/') {
       setActiveSection('home');
+    } else if (location.pathname === '/contact') {
+      setActiveSection('contact');
     }
 
     window.addEventListener('scroll', handleScroll);
@@ -93,7 +100,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <motion.div key={item.id}>
-                {item.id === 'home' ? (
+                {!item.path.includes('#') ? (
                   <Link to={item.path}>
                     <motion.button
                       whileHover={{ scale: 1.05 }}
@@ -160,7 +167,7 @@ const Navbar = () => {
             <div className="px-5 py-5 space-y-2.5">
               {navItems.map((item) => (
                 <motion.div key={item.id}>
-                  {item.id === 'home' ? (
+                  {!item.path.includes('#') ? (
                     <Link to={item.path}>
                       <motion.button
                         whileHover={{ scale: 1.02 }}

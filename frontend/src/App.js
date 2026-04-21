@@ -4,7 +4,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
-import Certificates from './pages/Certificates';
+import UnderConstruction from './pages/UnderConstruction';
 
 const getRouterBasename = () => {
   const publicUrl = process.env.PUBLIC_URL || '';
@@ -36,7 +36,11 @@ function App() {
           <main>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/certificates" element={<Certificates />} />
+              {/* TEMP UNDER-CONSTRUCTION ROUTES (Apr 2026)
+                  To undo: remove routes below and restore real page components/routes. */}
+              <Route path="/contact" element={<UnderConstruction />} />
+              <Route path="/certificates" element={<UnderConstruction />} />
+              <Route path="*" element={<UnderConstruction />} />
             </Routes>
           </main>
           <Footer />
